@@ -1,0 +1,8 @@
+streamlit
+pandas
+plotly
+matplotlib
+nltk
+wordcloud
+scikit-learn
+python-dateutil
