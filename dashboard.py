@@ -23,7 +23,22 @@ except LookupError:
 
 # Конфиг/пути
 st.set_page_config(page_title="Аналитика отзывов", layout="wide")
-DATA_PATH = Path(r"C:\Users\shoma\OneDrive\Рабочий стол\pract\out_reviews\dataset_reviews.csv")
+# -----------------------------
+# Загрузка данных из репозитория
+# -----------------------------
+import pandas as pd
+from pathlib import Path
+import streamlit as st
+
+DATA_PATH = Path("dataset_reviews.csv")
+
+if DATA_PATH.exists():
+    df = pd.read_csv(DATA_PATH, encoding="utf-8-sig")
+    st.caption(f"Загружено из файла: {DATA_PATH}")
+else:
+    st.error("Файл dataset_reviews.csv не найден в репозитории!")
+    st.stop()
+
 
 # Вспомогательные функции
 RU_MONTHS = {
